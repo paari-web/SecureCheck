@@ -13,7 +13,7 @@ def new_connection():
             host="localhost",
             user="root",
             password="",
-            database="police"  # ✅ Make sure this matches your DB name
+            database="police"  
         )
         return mydb
     except mysql.connector.Error as e:
