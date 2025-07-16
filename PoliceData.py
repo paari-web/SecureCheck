@@ -5,9 +5,8 @@ import mysql.connector
 import plotly.express as px
 import datetime
 
-# -------------------------------
+
 # DB Connection
-# -------------------------------
 def new_connection():
     try:
         mydb = mysql.connector.connect(
@@ -21,9 +20,9 @@ def new_connection():
         st.error(f"Connection Error: {e}")
         return None
 
-# -------------------------------
+
 # Fetch Data
-# -------------------------------
+
 def fetch_data(query):
     conn = new_connection()
     if conn:
@@ -39,9 +38,9 @@ def fetch_data(query):
     else:
         return pd.DataFrame()
 
-# -------------------------------
+
 # Streamlit UI
-# -------------------------------
+
 st.set_page_config(page_title="🚓 SecureCheck: Police Post Dashboard", layout="wide")
 st.title("🚓 SecureCheck: Police Post Dashboard")
 
@@ -51,9 +50,9 @@ menu = st.sidebar.selectbox(
     ["Home", "View Logs", "Data Analytics", "Add Logs"]
 )
 
-# -------------------------------
+
 # Home Page
-# -------------------------------
+
 if menu == "Home":
     st.subheader("Welcome to SecureCheck ✅")
     st.write("""
@@ -63,9 +62,9 @@ if menu == "Home":
     - Monitor police post efficiency
     """)
 
-# -------------------------------
+
 # View Logs Page
-# -------------------------------
+
 elif menu == "View Logs":
     st.subheader("📋 View Vehicle Logs with Filters")
 
@@ -104,7 +103,7 @@ elif menu == "View Logs":
 
 
 
-# -------------------------------
+
 # Data Analytics Page
 # -------------------------------
 elif menu == "Data Analytics":
@@ -391,7 +390,7 @@ elif menu == "Data Analytics":
         else:
             st.warning("No data found for this query.")
 
-# -------------------------------
+
 # Add Logs Page (Optional Form)
 # -------------------------------
 
